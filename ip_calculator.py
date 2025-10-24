@@ -38,3 +38,19 @@ def decimal_ip_to_binary_ip(decimal_ip):
             x = x+1
 
     return res
+
+# Makes the subnet from the CIDAR number in binary
+def subnetmask_binary(cidar_number):
+    res = "-1"
+    if (cidar_number < 33 and cidar_number > 0):
+        for x in range(4):
+            for y in range(8):
+                if(cidar_number!=0):
+                    res=res+"1"
+                    cidar_number-=1
+                else:
+                    res=res+"0"
+            if(x<3):
+                res=res+"."
+
+    return res
